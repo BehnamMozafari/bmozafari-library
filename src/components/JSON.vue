@@ -109,13 +109,23 @@
       <p v-if="showMessage" class="message success">
         ✨ You're a Vue superstar! ✨
       </p>
-      <p v-else class="message" >Click the button to see a message.</p>
+      <p v-else class="message">Click the button to see a message.</p>
     </section>
 
+    <!-- Highlighting George Orwell-->
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
-
+      <ul>
+        <li v-for="author in authors" :key="author.id" :class="{ highlight: author.name === 'George Orwell' }" :style="{
+          fontWeight: author.name === 'George Orwell' ? 'bold' : 'normal',
+          color: author.name === 'George Orwell' ? 'white' : '#333',
+          padding: author.name === 'George Orwell' ? '8px' : '',
+          borderRadius: author.name === 'George Orwell' ? '4px' : ''
+        }">
+          {{ author.name }} ({{ author.birthYear }})
+        </li>
+      </ul>
     </section>
   </div>
 </template>
